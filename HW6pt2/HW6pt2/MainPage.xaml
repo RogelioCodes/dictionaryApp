@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HW6pt2.MainPage"
+             xmlns:local="clr-namespace:CustomChap"
+             Title="Dictionary">
+
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="20,20,20,20">
+            <Label FontSize="14" FontAttributes="Italic" TextColor="Black"
+                   Text="Dictonairy" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+            <local:MyInput x:Name="InputBox" Placeholder= "Enter a word to search"  Completed="InputBox_Completed"
+                           HorizontalTextAlignment="Center" HorizontalOptions="Center"
+                            
+                           />
+            
+        
+        <!-- Place new controls here -->
+        <ListView x:Name="WordView" HasUnevenRows="True" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10"  >
+                            
+                            <Label Text="{Binding Type}" FontSize="18" TextColor="Black" FontAttributes="Italic"></Label>
+                            <Label Text="{Binding Definition}" FontSize="18" TextColor="Black" />
+
+                            <Label Text="{Binding Example}" FontSize="18" TextColor="Black" FontAttributes="Italic" ></Label>
+                            <Label Text="{Binding Emoji}" FontSize="18" TextColor="Black"  ></Label>
+                            <Image Source="{Binding ImageUrl}"   />
+                        </StackLayout>
+                        
+                    </ViewCell>
+                        
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+
+</ContentPage>
